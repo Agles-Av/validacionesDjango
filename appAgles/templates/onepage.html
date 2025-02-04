@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>One page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="col">
+            <div class="row mt-4" >
+                <div class="col-6 text-center ">
+                    <h1>Bienvenidos a mi one page</h1>
+                    <p>Esta pagina funciona cargando elementos con el evento scroll</p>
+                </div>
+                <div class="col-6">
+                    <img style="border-radius: 20%;" class="img-fluid" src="https://www.dzoom.org.es/wp-content/uploads/2019/07/fotografia-flores-consejos-24.jpg" alt="esto es una imagen">
+                </div>
+            </div>
+            <br>
+            <div class="row" id="tarjetas">
+                <!--Aqui cargaran las tarejatas Cards-->
+                <div class="card col-4 ">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Card 1
+                        </h5>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var i = 1;
+        function loadCards(){
+            console.log('entro a la funcion');
+            //hacer logica con propiedades en js 
+            var objet = {
+                title:"Card numero: "+i,
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates."+i,
+            }
+            i++;
+
+            //crear nuestro html con js
+            var card = document.createElement('div');
+            card.setAttribute('class','card col-4');
+
+            var body = document.createElement('div');
+            body.setAttribute('class','card-body');
+
+            var h5 = document.createElement('h5');
+            h5.setAttribute('class','card-title');
+            h5.innerHTML = objet.title;
+
+            var p = document.createElement('p');
+            p.setAttribute('class','card-text');
+            p.innerHTML = objet.text;
+            body.appendChild(h5);
+            body.appendChild(p);
+            card.appendChild(body);
+
+            document.getElementById('tarjetas').appendChild(card);
+
+        }
+
+        window.addEventListener('scroll',()=>{
+            if(window.innerHeight + window.scrollY >= document.body.offsetHeight){ // esta condicion es para saber si hemos llegado al final de la pagina
+                console.log('llegamos al final de la pagina');
+                for (let index = 0; index < 5; index++) {
+                    if(i>10){
+                        return;
+                    }
+                loadCards();
+                }
+            }
+        })
+    </script>
+</body>
+</html>
