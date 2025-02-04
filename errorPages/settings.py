@@ -137,7 +137,13 @@ HANDLER404 = 'appAgles.views.show_error_404'
 # DEFINIR QUE DEBE HACER DJANGO CUANDO OCURRE UN 500
 HANDLER500 = 'appAgles.views.show_error_500'
 
+# API KEY DE GOOGLE SEARCH
+GOOGLE_SEARCH_API = 'AIzaSyBlw4lyU3R9GDSxYJUhECx5FP5gKipo9JI'
+# nos da acceso al api de google search
 
+# ID DE LA CUENTA DE GOOGLE SEARCH
+ID_SEARCH_ENGINE = '0083c3f32618d4f11'
+# ligamos un buscador al buscador de la cuenta de google search
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
